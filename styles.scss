@@ -30,8 +30,7 @@ body{
     align-items: center;
 }
 button{
-    outline: solid red;
-    position: fixed;
+    padding: 2%;
 }
 
 .background{
@@ -68,4 +67,16 @@ button{
 .createPlayer.active{
     transform: scale(1);
 }
-
+.winningDisplay{
+    background-color: white;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
