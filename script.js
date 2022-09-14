@@ -14,7 +14,7 @@ const player1 = (() => {
     }
     const win = () => {
         console.log("player1 wins");
-
+       // console.log(game.movesArray, "moves array");
         const winDisplay = document.createElement("div");
         const winningText = document.createElement("h2");
         const restartButton = document.createElement("button");
@@ -26,7 +26,6 @@ const player1 = (() => {
         bodyElement.appendChild(winDisplay);
         restartButton.addEventListener("click", () => {
             winDisplay.remove();
-            game.restartGame();
         })
     }
     return {move, win};
@@ -41,7 +40,7 @@ const player1 = (() => {
     }
     const win = () => {
         console.log("player2 wins");
-
+       // console.log(game.movesArray, "moves array");
         const winDisplay = document.createElement("div");
         const winningText = document.createElement("h2");
         const restartButton = document.createElement("button");
@@ -52,8 +51,7 @@ const player1 = (() => {
         winDisplay.appendChild(winningText);
         bodyElement.appendChild(winDisplay);
         restartButton.addEventListener("click", () => {
-            winDisplay.remove();
-            game.restartGame();
+            winDisplay.remove();            
         })
     }
     return {move, win};
@@ -67,7 +65,7 @@ const game = (() => {
     board.forEach(square => {
         square.addEventListener("click", (e) => {
             if(counter < 10 && e.srcElement.innerHTML == ""){ 
-                      
+                console.log(counter, "counter");
                 if(counter % 2 == 0) player2.move(e);
                 else player1.move(e); 
                 game.winChecker(); 
@@ -81,11 +79,11 @@ const game = (() => {
         counter++;
 
         if(counter > 9){
-            winChecker();
+            counter = 1;
         }
     }
     let winChecker = () => {
-
+        console.log("checking for wins")
         let checkCounter = 0;
         let player1rowCounter = 0;
         let player2rowCounter = 0;
@@ -96,7 +94,7 @@ const game = (() => {
         let k = 3;
 
         while(checkCounter < 3){
-
+            console.log(j, "j");
             for(; i < k; i++)
             {
 
@@ -112,14 +110,26 @@ const game = (() => {
                 if(game.movesArray[j] == 1) player2columnCounter++;
 
             }
-
+           // console.log(player2rowCounter, "2rowCounter");
+            //console.log(player2columnCounter, "1columnCounter");
             if(player1rowCounter == 3 || player1columnCounter == 3) 
-            {
+            {   
+                //console.log(player2columnCounter, "1columnCounterinsideif");
+                board.forEach(square => {
+                    square.innerHTML = "";
+                })
+                counter = 1;
+                game.movesArray = [];
                  return player1.win();
             }
 
-            else if(player2rowCounter == 3 || player1columnCounter == 3)
-            {             
+            else if(player2rowCounter == 3 || player2columnCounter == 3)
+            {       
+                board.forEach(square => {
+                    square.innerHTML = "";
+                }) 
+                counter = 1;
+                game.movesArray = [];     
                 return player2.win();   
             }
 
