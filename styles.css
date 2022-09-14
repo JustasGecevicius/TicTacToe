@@ -26,12 +26,14 @@ body {
 }
 
 .gameBoardSquare {
+  font-size: 2rem;
   width: 50px;
   aspect-ratio: 1/1;
   border: solid black 2px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
 }
 
 button {
@@ -79,6 +81,8 @@ button {
 }
 
 .winningDisplay {
+  transform: scale(0);
+  transition: 700ms;
   background-color: white;
   top: 0;
   right: 0;
@@ -90,4 +94,8 @@ button {
   align-items: center;
   flex-direction: column;
   gap: 10px;
+}
+
+.winningDisplay.active {
+  transform: scale(1);
 }/*# sourceMappingURL=styles.css.map */

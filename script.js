@@ -27,6 +27,9 @@ const player1 = (() => {
         restartButton.addEventListener("click", () => {
             winDisplay.remove();
         })
+        setTimeout(() => {
+            winDisplay.classList.add("active");
+        }, 1)
     }
     return {move, win};
  })();
@@ -39,7 +42,7 @@ const player1 = (() => {
             game.counterFunction();   
     }
     const win = () => {
-        console.log("player2 wins");
+       // console.log("player2 wins");
        // console.log(game.movesArray, "moves array");
         const winDisplay = document.createElement("div");
         const winningText = document.createElement("h2");
@@ -50,9 +53,14 @@ const player1 = (() => {
         winDisplay.appendChild(restartButton);
         winDisplay.appendChild(winningText);
         bodyElement.appendChild(winDisplay);
+
         restartButton.addEventListener("click", () => {
             winDisplay.remove();            
         })
+        setTimeout(() => {
+            winDisplay.classList.add("active");
+        }, 1)
+
     }
     return {move, win};
  })();
@@ -85,18 +93,17 @@ const game = (() => {
     let draw = () => {
         console.log("draw");
         // console.log(game.movesArray, "moves array");
-         const winDisplay = document.createElement("div");
-         const winningText = document.createElement("h2");
-         const restartButton = document.createElement("button");
-         restartButton.innerHTML = "Restart Game";
+         const winDisplay = document.querySelector(".winningDisplay");
+         const winningText = document.querySelector(".winningText");
+         const restartButton = document.querySelector(".restartButton");
          winningText.innerHTML = "Draw";
-         winDisplay.classList.add("winningDisplay");
-         winDisplay.appendChild(restartButton);
-         winDisplay.appendChild(winningText);
-         bodyElement.appendChild(winDisplay);
+
          restartButton.addEventListener("click", () => {
-             winDisplay.remove();            
+             winDisplay.classList.remove("active");            
          })
+         setTimeout(() => {
+            winDisplay.classList.add("active");
+        }, 1)
        }
 
     let winChecker = () => {
