@@ -82,6 +82,23 @@ const game = (() => {
             counter = 1;
         }
     }
+    let draw = () => {
+        console.log("draw");
+        // console.log(game.movesArray, "moves array");
+         const winDisplay = document.createElement("div");
+         const winningText = document.createElement("h2");
+         const restartButton = document.createElement("button");
+         restartButton.innerHTML = "Restart Game";
+         winningText.innerHTML = "Draw";
+         winDisplay.classList.add("winningDisplay");
+         winDisplay.appendChild(restartButton);
+         winDisplay.appendChild(winningText);
+         bodyElement.appendChild(winDisplay);
+         restartButton.addEventListener("click", () => {
+             winDisplay.remove();            
+         })
+       }
+
     let winChecker = () => {
         console.log("checking for wins")
         let checkCounter = 0;
@@ -132,7 +149,14 @@ const game = (() => {
                 game.movesArray = [];     
                 return player2.win();   
             }
-
+            else if(counter == 1 && game.movesArray != []){
+                board.forEach(square => {
+                    square.innerHTML = "";
+                }) 
+                counter = 1;
+                game.movesArray = [];
+                return draw();
+            }
             checkCounter++;
             k += 3;
             //console.log(player1columnCounter, player1rowCounter);
@@ -144,7 +168,7 @@ const game = (() => {
             j = checkCounter;
         }
 
-       // console.log("somebody won", player1rowCounter);
+    
     } 
 
 
