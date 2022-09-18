@@ -67,17 +67,21 @@ const game = (() => {
         button.addEventListener("click", () => {
         
         if(playerOrComputer == "player"){
-            player1Name = playerNameInputField.value;
-            playerNames.innerHTML = "Player 2 Name";
-            playerNameInputField.value = "";
-            if(createdPlayers == 1)
+            if(createdPlayers == 0)
+            {
+                player1Name = playerNameInputField.value;
+                playerNames.innerHTML = "Player 2 Name";
+                playerNameInputField.value = "";
+                createdPlayers++;
+            }           
+            else
             {
                 createPlayer.classList.remove("active");
                 player2Name = playerNameInputField.value;  
                 gameBoard.classList.add("active");
                 background.classList.remove("active");
             }
-            createdPlayers++;
+            
         }
         else if(playerOrComputer == "computer"){
 
