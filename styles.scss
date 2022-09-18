@@ -39,9 +39,7 @@ body{
     align-items: center;
     border-radius:5px;
 }
-button{
-    padding: 2%;
-}
+
 
 .background{
     transform: scale(0);
@@ -119,6 +117,10 @@ button{
     &:hover{
         cursor: pointer;
     }
+}
+button.active{
+    box-shadow: none;
+    transform: scale(0.99);
 }
 .winningDisplay{
     transform: scale(0);

@@ -49,6 +49,7 @@ const game = (() => {
     let movesArray = [];  
     let counter = 1;
 
+    const audio = new Audio("m1-organ-bass_G_major.wav");
     const chooseOpponentScreen = document.querySelector(".playerOrComputerWrap");
     const computerChoice = document.querySelector(".computer");
     const playerChoice = document.querySelector(".player");
@@ -60,10 +61,10 @@ const game = (() => {
     const gameBoard = document.querySelector(".gameBoardWrapWrap");
     const background = document.querySelector(".background");
 
+
     playerNames.innerHTML = "Player 1 Name";
     
-    const buttonFunction = (playerOrComputer) => {
-        console.log("button function");
+    const buttonFunction = (playerOrComputer) => { 
         button.addEventListener("click", () => {
         
         if(playerOrComputer == "player"){
@@ -107,6 +108,9 @@ const game = (() => {
 
     board.forEach(square => {
         square.addEventListener("click", (e) => {
+            audio.pause();
+            audio.currentTime = 0;
+            audio.play();
             if(counter < 10 && e.srcElement.innerHTML == ""){ 
 
                 if(counter % 2 == 0) player2.move(e);
@@ -200,6 +204,18 @@ const game = (() => {
             }
         }
     }
+    const buttonAnimations = (() => {
+        const allButtons = document.querySelectorAll("button");
+
+        allButtons.forEach(button => {
+            button.addEventListener("mousedown", () => {
+                button.classList.add("active");
+            })
+            button.addEventListener("mouseup", () => {
+                button.classList.remove("active");
+            })
+        })       
+    })();
     return {counterFunction, movesArray, player2Name, computerPlay, winChecker};
  })();
 
