@@ -11,18 +11,26 @@ body {
 }
 
 .gameBoardWrap {
-  transform-origin: center;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
   display: grid;
   grid-template-columns: 50px 50px 50px;
   grid-template-rows: 50px 50px 50px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   gap: 2%;
+  outline: solid green;
+}
+
+.gameBoardWrapWrap {
+  transform: scale(0);
+  width: 100vw;
+  position: fixed;
+  outline: solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.gameBoardWrapWrap.active {
+  transform: scale(1);
 }
 
 .gameBoardSquare {
@@ -45,6 +53,7 @@ button {
 }
 
 .background.active {
+  z-index: 0;
   transform: scale(1);
   position: fixed;
   background-color: rgba(0, 0, 0, 0.5);
@@ -143,5 +152,33 @@ button:hover {
 }
 
 .winningDisplay.active {
+  transform: scale(1);
+}
+
+.playerOrComputer {
+  background-color: white;
+  padding: 5%;
+  text-align: center;
+  border-radius: 20px;
+  border: solid black 2px;
+}
+.playerOrComputer h2 {
+  margin-bottom: 5%;
+}
+
+.playerOrComputerWrap {
+  width: 100vw;
+  position: fixed;
+  z-index: 20;
+  transform: scale(0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: solid red;
+  height: 100vh;
+}
+
+.playerOrComputerWrap.active {
+  z-index: 20;
   transform: scale(1);
 }/*# sourceMappingURL=styles.css.map */

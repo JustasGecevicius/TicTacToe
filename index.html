@@ -9,24 +9,40 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="gameBoardWrap">
-        <div data-index = "0" class="gameBoardSquare"></div>
-        <div data-index = "1" class="gameBoardSquare"></div>
-        <div data-index = "2" class="gameBoardSquare"></div>
-        <div data-index = "3" class="gameBoardSquare"></div>
-        <div data-index = "4" class="gameBoardSquare"></div>
-        <div data-index = "5" class="gameBoardSquare"></div>
-        <div data-index = "6" class="gameBoardSquare"></div>
-        <div data-index = "7" class="gameBoardSquare"></div>
-        <div data-index = "8" class="gameBoardSquare"></div>
+    <div class="background active"></div>
+    <div class="playerOrComputerWrap active">
+        <div class="playerOrComputer">
+            <h2 class="opponentChoice">Choose your opponent!</h2>
+            <button class="computer">Computer</button>
+            <button class="player">Player</button>
+        </div>
     </div>
-    <div class="createPlayer active">
+
+
+    <div class="gameBoardWrapWrap">
+        <div class="gameBoardWrap">
+            <div data-index = "0" class="gameBoardSquare"></div>
+            <div data-index = "1" class="gameBoardSquare"></div>
+            <div data-index = "2" class="gameBoardSquare"></div>
+            <div data-index = "3" class="gameBoardSquare"></div>
+            <div data-index = "4" class="gameBoardSquare"></div>
+            <div data-index = "5" class="gameBoardSquare"></div>
+            <div data-index = "6" class="gameBoardSquare"></div>
+            <div data-index = "7" class="gameBoardSquare"></div>
+            <div data-index = "8" class="gameBoardSquare"></div>
+        </div>
+    </div>
+
+    <div class="moveDisplayer">
+        <h2 class="someonesMove"></h2>
+    </div>
+    <div class="createPlayer">
         <div class="inputWrap">
-            <input type="text" class="playerName" placeholder="Input Player Name">        
+            <h3 class="playerName"></h3>
+            <input type="text" class="playerNameInput" placeholder="Input Player Name">        
             <button class="gameStarter">Start Game</button>
         </div>
     </div>
-    <div class="background"></div>
 
     <div class="winningDisplay">
         <h2 class="winningText"></h2>
